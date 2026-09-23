@@ -12,5 +12,5 @@ classDiagram
         +String nombre
         +int diasPascua
     }
-    Tipo "1" *-- "N" Festivo : contiene (embebido)
+    Tipo "1" *-- "N" Festivo : contiene
 ```
