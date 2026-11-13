@@ -2,18 +2,18 @@
 const express = require('express');
 const app = express();
 
-//realizar la conexion a la BD
-const bd = require('./modelos/bd');
+//cargar el repositorio que realiza la conexion a la BD
+const repositorio = require('./repositorios/festivos.repositorio');
 
 //Cargar libreria para 'parseo' de contenido JSON
 app.use(express.json());
 
 //Dejar disponibles las rutas a los metodos web
-require('./rutas/festivo.rutas')(app);
+require('./rutas/festivos.rutas')(app);
 
 const puerto = 3030;
 
-bd.conectar()
+repositorio.conectar()
     .then(() => {
         app.listen(puerto, () => {
             console.log(`Servicio iniciado a través de la url http://localhost:${puerto}`);
